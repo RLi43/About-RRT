@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-cn" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4 各种RRT们/RRT的修饰手段 · GitBook</title>
+        <title>4 各种RRT们/RRT的修饰手段 · demo</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -17,31 +17,45 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
                 
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-links/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
         
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
         
     
@@ -58,7 +72,7 @@
 
     
     
-    <link rel="prev" href="../chap 3/Optimal RRTs.html" />
+    <link rel="prev" href="../chap 3/BatchInformedTreeStar.html" />
     
 
     </head>
@@ -69,7 +83,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="輸入並搜尋" />
 </div>
 
             
@@ -169,6 +183,102 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chap 3/RRTstar.html">
+            
+                <a href="../chap 3/RRTstar.html">
+            
+                    
+                    3.1 RRT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../chap 3/Heuristic.html">
+            
+                <a href="../chap 3/Heuristic.html">
+            
+                    
+                    3.2 Heuristic
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../chap 3/InformedRRTstar.html">
+            
+                <a href="../chap 3/InformedRRTstar.html">
+            
+                    
+                    3.2.1 Informed RRT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../chap 3/FMT and BIT.html">
+            
+                <a href="../chap 3/FMT and BIT.html">
+            
+                    
+                    3.3 FMT与BIT*
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../chap 3/FMT.html">
+            
+                <a href="../chap 3/FMT.html">
+            
+                    
+                    3.3.1 FMT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../chap 3/BatchInformedTreeStar.html">
+            
+                <a href="../chap 3/BatchInformedTreeStar.html">
+            
+                    
+                    3.3.2 BIT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter active" data-level="1.5" data-path="RRTs.html">
@@ -191,7 +301,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+            本書使用 GitBook 釋出
         </a>
     </li>
 </ul>
@@ -230,7 +340,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="4-&#x5404;&#x79CD;rrt&#x4EEC;rrt&#x7684;&#x4FEE;&#x9970;&#x624B;&#x6BB5;">4 &#x5404;&#x79CD;RRT&#x4EEC;/RRT&#x7684;&#x4FEE;&#x9970;&#x624B;&#x6BB5;</h1>
-
+<p>[TOC]</p>
+<h2 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h2>
+<h2 id="&#x91C7;&#x6837;">&#x91C7;&#x6837;</h2>
+<h2 id="&#x8DEF;&#x5F84;&#x4F18;&#x5316;">&#x8DEF;&#x5F84;&#x4F18;&#x5316;</h2>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-08-09 10:28:12
+</span></footer>
                                 
                                 </section>
                             
@@ -257,7 +373,7 @@
 
             
                 
-                <a href="../chap 3/Optimal RRTs.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3 渐进最优的RRT们">
+                <a href="../chap 3/BatchInformedTreeStar.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3.3.2 BIT*">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -269,7 +385,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4 各种RRT们/RRT的修饰手段","level":"1.5","depth":1,"previous":{"title":"3 渐进最优的RRT们","level":"1.4","depth":1,"path":"chap 3/Optimal RRTs.md","ref":"chap 3/Optimal RRTs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap 4/RRTs.md","mtime":"2019-08-09T02:23:47.314Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-09T02:25:13.316Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4 各种RRT们/RRT的修饰手段","level":"1.5","depth":1,"previous":{"title":"3.3.2 BIT*","level":"1.4.3.2","depth":3,"path":"chap 3/BatchInformedTreeStar.md","ref":"chap 3/BatchInformedTreeStar.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","highlight","baidu","splitter","sitemap","tbfed-pagefooter","fontsettings","simple-page-toc","links","katex","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{},"disqus":{"useIdentifier":false,"shortName":"webpack-handbook"},"github":{"url":"https://github.com/webChatContact/baas-v2-help"},"editlink":{"label":"编辑本页面","multilingual":false,"base":"https://github.com/webChatContact"},"livereload":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"family":"serif","size":12,"theme":"white"},"highlight":{},"sitemap":{"hostname":"http://baidu.com/"},"links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"demo","language":"zh-cn","gitbook":"*","description":"demo"},"file":{"path":"chap 4/RRTs.md","mtime":"2019-08-09T02:28:12.443Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-13T08:36:41.980Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -277,6 +393,38 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-links/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
@@ -300,10 +448,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 

@@ -1,0 +1,469 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.2.1 Informed RRT* · demo</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-links/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="FMT and BIT.html" />
+    
+    
+    <link rel="prev" href="Heuristic.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chap 1/BackgroundKnowledge.html">
+            
+                <a href="../chap 1/BackgroundKnowledge.html">
+            
+                    
+                    1 在此之前
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chap 1/defination.html">
+            
+                <a href="../chap 1/defination.html">
+            
+                    
+                    1.1 规划问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chap 1/C-Space.html">
+            
+                <a href="../chap 1/C-Space.html">
+            
+                    
+                    1.2 C-Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chap 2/RandomRapidExploreTree.html">
+            
+                <a href="../chap 2/RandomRapidExploreTree.html">
+            
+                    
+                    2 RRT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Optimal RRTs.html">
+            
+                <a href="Optimal RRTs.html">
+            
+                    
+                    3 渐进最优的RRT们
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="RRTstar.html">
+            
+                <a href="RRTstar.html">
+            
+                    
+                    3.1 RRT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="Heuristic.html">
+            
+                <a href="Heuristic.html">
+            
+                    
+                    3.2 Heuristic
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.2.1" data-path="InformedRRTstar.html">
+            
+                <a href="InformedRRTstar.html">
+            
+                    
+                    3.2.1 Informed RRT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="FMT and BIT.html">
+            
+                <a href="FMT and BIT.html">
+            
+                    
+                    3.3 FMT与BIT*
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="FMT.html">
+            
+                <a href="FMT.html">
+            
+                    
+                    3.3.1 FMT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="BatchInformedTreeStar.html">
+            
+                <a href="BatchInformedTreeStar.html">
+            
+                    
+                    3.3.2 BIT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chap 4/RRTs.html">
+            
+                <a href="../chap 4/RRTs.html">
+            
+                    
+                    4 各种RRT们/RRT的修饰手段
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.2.1 Informed RRT*</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="321-informed-rrt">3.2.1 Informed RRT*</h1>
+<p>Informed RRT*&#x5728;RRT*&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x89E3;&#x4E4B;&#x540E;&#xFF0C;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x89E3;&#x7684;cost&#x6392;&#x9664;&#x4E0D;&#x53EF;&#x80FD;&#x7684;&#x91C7;&#x6837;&#x70B9;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x91C7;&#x6837;&#x7684;&#x6548;&#x7387;&#x3002;</p>
+<p><img src="http://lijiangfan.xyz/wp-content/uploads/2019/07/Informed-1024x331.png" alt="Informed"></p>
+<p>&#x5BF9;&#x4E8E;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x4E00;&#x70B9;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#xFF0C;&#x8BB0;&#x4ECE;&#x8D77;&#x70B9;&#x5230;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#x7684;&#x4EE3;&#x4EF7;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>/cost-to-come&#xFF0C;&#x82E5;&#x53EF;&#x884C;&#x7684;&#x8DEF;&#x5F84;&#x662F;&#x4E00;&#x68F5;&#x6811;&#xFF0C;&#x90A3;&#x4E48;&#x8BB0;&#x901A;&#x8FC7;&#x8FD9;&#x68F5;&#x6811;&#x5230;&#x8FBE;&#x8BE5;&#x70B9;&#x7684;&#x4EE3;&#x4EF7;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mi>T</mi></msub><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g_T(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">T</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x3002;&#x8BB0;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x7684;&#x4E0B;&#x9650;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>g</mi></mrow><mo>^</mo></mover><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\hat{g}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span></span></span><span style="top:0em;margin-left:0.05556em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8D77;&#x70B9;&#x5230;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#x7684;&#x76F4;&#x7EBF;&#x8DDD;&#x79BB;&#x3002;</p>
+<p><img src="http://lijiangfan.xyz/wp-content/uploads/2019/08/cost-to-come.png" alt="cost-to-come"></p>
+<p>&#x540C;&#x6837;&#x7684;&#xFF0C;&#x8BB0;&#x4ECE;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#x5230;&#x7EC8;&#x70B9;&#x7684;&#x4EE3;&#x4EF7;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">h(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>/cost-to-go&#x3002;&#x5BF9;&#x4E8E;&#x524D;&#x5411;&#x641C;&#x7D22;&#x6765;&#x8BF4;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">h(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x7684;&#x503C;&#x4E0D;&#x5F97;&#x800C;&#x77E5;&#x3002;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">h(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x7684;&#x4E0B;&#x9650;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>h</mi></mrow><mo>^</mo></mover><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\hat{h}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9578799999999998em;"></span><span class="strut bottom" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit">h</span></span></span><span style="top:-0.26343999999999995em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x5C31;&#x662F;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#x5230;&#x7EC8;&#x70B9;&#x7684;&#x8DDD;&#x79BB;&#x3002;</p>
+<p><img src="http://lijiangfan.xyz/wp-content/uploads/2019/08/cost-to-go.png" alt="cost-to-go"></p>
+<p>&#x8BB0;&#x901A;&#x8FC7;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x603B;&#x4EE3;&#x4EF7;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>+</mo><mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x)=g(x)+h(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit">h</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x3002;&#x90A3;&#x4E48;&#x901A;&#x8FC7;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x4EE3;&#x4EF7;&#x4E0B;&#x9650;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>f</mi></mrow><mo>^</mo></mover><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mover accent="true"><mrow><mi>g</mi></mrow><mo>^</mo></mover><mo>(</mo><mi>x</mi><mo>)</mo><mo>+</mo><mover accent="true"><mrow><mi>h</mi></mrow><mo>^</mo></mover><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\hat{f}(x)=\hat{g}(x)+\hat{h}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9578799999999998em;"></span><span class="strut bottom" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span><span style="top:-0.26343999999999995em;margin-left:0.33334em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span></span></span><span style="top:0em;margin-left:0.05556em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mbin">+</span><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit">h</span></span></span><span style="top:-0.26343999999999995em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5DF2;&#x77E5;&#x4E00;&#x4E2A;&#x89E3;&#x7684;&#x4EE3;&#x4EF7;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>C</mi><mi>o</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">bestCost</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit">o</span><span class="mord mathit">s</span><span class="mord mathit">t</span></span></span></span>&#xFF0C;&#x90A3;&#x4E48;&#x5BF9;&#x4E8E;&#x6240;&#x6709;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>f</mi></mrow><mo>^</mo></mover><mo>(</mo><mi>x</mi><mo>)</mo><mo>&gt;</mo><mi>b</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>C</mi><mi>o</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\hat{f}(x)&gt;bestCost</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9578799999999998em;"></span><span class="strut bottom" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span><span style="top:-0.26343999999999995em;margin-left:0.33334em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">&gt;</span><span class="mord mathit">b</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit">o</span><span class="mord mathit">s</span><span class="mord mathit">t</span></span></span></span>&#x7684;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#xFF0C;&#x6811;&#x4E0A;&#x52A0;&#x5165;&#x8FD9;&#x4E9B;&#x70B9;&#x662F;&#x6CA1;&#x6709;&#x53EF;&#x80FD;&#x6539;&#x5584;&#x8FD9;&#x4E2A;&#x89E3;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53EA;&#x5BF9;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>f</mi></mrow><mo>^</mo></mover><mo>(</mo><mi>x</mi><mo>)</mo><mo>&lt;</mo><mi>b</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>C</mi><mi>o</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\hat{f}(x)&lt;bestCost</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9578799999999998em;"></span><span class="strut bottom" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span></span></span><span style="top:-0.26343999999999995em;margin-left:0.33334em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">&lt;</span><span class="mord mathit">b</span><span class="mord mathit">e</span><span class="mord mathit">s</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord mathit">o</span><span class="mord mathit">s</span><span class="mord mathit">t</span></span></span></span>&#x7684;&#x8303;&#x56F4;&#x8FDB;&#x884C;&#x91C7;&#x6837;&#xFF0C;&#x53BB;&#x6389;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x91C7;&#x6837;&#x70B9;&#x3002;&#x8FD9;&#x4E2A;&#x8303;&#x56F4;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8D85;&#x692D;&#x5706;&#x3002;&#x8BBA;&#x6587;&#x91CC;&#x9610;&#x8FF0;&#x4E86;&#x5982;&#x4F55;&#x5BF9;&#x8FD9;&#x4E2A;&#x8D85;&#x692D;&#x5706;&#x8FDB;&#x884C;&#x5747;&#x5300;&#x91C7;&#x6837;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x5229;&#x7528;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\hat f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9578799999999998em;"></span><span class="strut bottom" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord mathit" style="margin-right:0.10764em;">f</span></span><span style="top:-0.26343999999999995em;margin-left:0.33334em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x662F;&#x5426;&#x8BA9;&#x4F60;&#x60F3;&#x5230;&#x4E86;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;A*&#x7B97;&#x6CD5;&#xFF1F;&#x4E0B;&#x9762;&#x7684;BIT*&#x5C06;&#x7EE7;&#x7EED;&#x5EF6;&#x7EED;&#x7C7B;&#x4F3C;A*&#x7B97;&#x6CD5;&#x7684;&#x601D;&#x60F3;&#x3002;</p>
+<h2 id="referrence">Referrence</h2>
+<p>[1] Jonathan D. Gammell, Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic </p>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-08-13 16:36:01
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Heuristic.html" class="navigation navigation-prev " aria-label="Previous page: 3.2 Heuristic">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="FMT and BIT.html" class="navigation navigation-next " aria-label="Next page: 3.3 FMT与BIT*">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.2.1 Informed RRT*","level":"1.4.2.1","depth":3,"next":{"title":"3.3 FMT与BIT*","level":"1.4.3","depth":2,"path":"chap 3/FMT and BIT.md","ref":"chap 3/FMT and BIT.md","articles":[{"title":"3.3.1 FMT","level":"1.4.3.1","depth":3,"path":"chap 3/FMT.md","ref":"chap 3/FMT.md","articles":[]},{"title":"3.3.2 BIT*","level":"1.4.3.2","depth":3,"path":"chap 3/BatchInformedTreeStar.md","ref":"chap 3/BatchInformedTreeStar.md","articles":[]}]},"previous":{"title":"3.2 Heuristic","level":"1.4.2","depth":2,"path":"chap 3/Heuristic.md","ref":"chap 3/Heuristic.md","articles":[{"title":"3.2.1 Informed RRT*","level":"1.4.2.1","depth":3,"path":"chap 3/InformedRRTstar.md","ref":"chap 3/InformedRRTstar.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","highlight","baidu","splitter","sitemap","tbfed-pagefooter","fontsettings","simple-page-toc","links","katex","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{},"disqus":{"useIdentifier":false,"shortName":"webpack-handbook"},"github":{"url":"https://github.com/webChatContact/baas-v2-help"},"editlink":{"label":"编辑本页面","multilingual":false,"base":"https://github.com/webChatContact"},"livereload":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"family":"serif","size":12,"theme":"white"},"highlight":{},"sitemap":{"hostname":"http://baidu.com/"},"links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"demo","language":"zh-cn","gitbook":"*","description":"demo"},"file":{"path":"chap 3/InformedRRTstar.md","mtime":"2019-08-13T08:36:01.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-13T08:36:41.980Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-links/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
