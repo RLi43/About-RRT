@@ -5,21 +5,15 @@
   "plugins": [ 
     "disqus",
     "github",
-    "editlink",
     "prism",
     "highlight",
-    "baidu",
     "splitter",
-    "sitemap",
     "tbfed-pagefooter",
     "fontsettings",
     "simple-page-toc",
     "links",
     "katex"
   ],
-  "styles": {
-    "website": "styles/website.css"
-  },
   "pluginsConfig": {
        "tbfed-pagefooter": {
             "copyright": "",
@@ -49,16 +43,6 @@
     },
     "github": {
       "url": "https://github.com/webChatContact/baas-v2-help"
-    },
-    "editlink": {
-      "base": "https://github.com/webChatContact",
-      "label": "编辑本页面"
-    },
-    "baidu": {
-        "token": "a9787f0ab45d5e237bab522431d0a7ec"
-    },
-    "sitemap": {
-        "hostname": "http://baidu.com/"
     }
   }
 }
