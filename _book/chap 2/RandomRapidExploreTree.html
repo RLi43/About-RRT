@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2 RRT · demo</title>
+        <title>2.1 RRT · demo</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -81,10 +81,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../chap 3/Optimal RRTs.html" />
+    <link rel="next" href="RRTConnect.html" />
     
     
-    <link rel="prev" href="../chap 1/C-Space.html" />
+    <link rel="prev" href="chap2.html" />
     
 
     </head>
@@ -153,9 +153,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../chap1/discrete planning.md">
+        <li class="chapter " data-level="1.2.2" data-path="../chap 1/discrete planning.html">
             
-                <span>
+                <a href="../chap 1/discrete planning.html">
             
                     
                     1.2 离散规划
@@ -184,9 +184,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="RandomRapidExploreTree.html">
+        <li class="chapter " data-level="1.3" data-path="chap2.html">
             
-                <a href="RandomRapidExploreTree.html">
+                <a href="chap2.html">
             
                     
                     2 RRT
@@ -194,6 +194,38 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="RandomRapidExploreTree.html">
+            
+                <a href="RandomRapidExploreTree.html">
+            
+                    
+                    2.1 RRT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="RRTConnect.html">
+            
+                <a href="RRTConnect.html">
+            
+                    
+                    2.2 RRTConnect
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -349,7 +381,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2 RRT</a>
+        <a href=".." >2.1 RRT</a>
     </h1>
 </div>
 
@@ -364,21 +396,51 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="2-rrt">2 RRT</h1>
-<h2 id="&#x57FA;&#x4E8E;&#x91C7;&#x6837;&#x7684;&#x89C4;&#x5212;">&#x57FA;&#x4E8E;&#x91C7;&#x6837;&#x7684;&#x89C4;&#x5212;</h2>
-<p>&#x8FDE;&#x7EED;&#x7A7A;&#x95F4;&#x7684;&#x8FD0;&#x52A8;&#x89C4;&#x5212;&#x5E38;&#x89C1;&#x7684;&#x6709;&#x4E24;&#x5927;&#x7C7B;&#xFF0C;&#x57FA;&#x4E8E;&#x91C7;&#x6837;&#x7684;&#x8FD0;&#x52A8;&#x89C4;&#x5212;&#xFF0C;&#x7EC4;&#x5408;&#x8FD0;&#x52A8;&#x89C4;&#x5212;&#x3002;&#x672C;&#x4E66;&#x53EA;&#x8C08;&#x8BBA;&#x4E00;&#x90E8;&#x5206;&#x57FA;&#x4E8E;&#x91C7;&#x6837;&#x7684;&#x7B97;&#x6CD5;&#x3002;</p>
-<p>&#x4E3A;&#x4EC0;&#x4E48;&#x7528;&#x91C7;&#x6837;&#xFF1F;&#x524D;&#x9762;&#x63D0;&#x5230;&#xFF0C;&#x673A;&#x68B0;&#x81C2;&#x7684;&#x8FD0;&#x52A8;&#x89C4;&#x5212;&#x5728;configuration space&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x516D;&#x8F74;&#x673A;&#x5668;&#x4EBA;&#xFF0C;&#x7A7A;&#x95F4;&#x7684;&#x7EF4;&#x5EA6;&#x5C31;&#x662F;6&#x3002;&#x5982;&#x679C;&#x5C06;&#x6574;&#x4E2A;&#x7A7A;&#x95F4;&#x79BB;&#x6563;&#x5316;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x9AD8;&#x7684;&#x8BA1;&#x7B97;&#x8D1F;&#x62C5;&#x3002;&#x800C;&#x5BF9;&#x4E8E;&#x50CF;&#x86C7;&#x5F62;&#x673A;&#x5668;&#x4EBA;&#x8FD9;&#x79CD;&#x5927;&#x91CF;&#x5173;&#x8282;&#x7684;&#x7ED3;&#x6784;&#xFF0C;configuration space&#x5C31;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x4E86;&#x3002;&#x91C7;&#x6837;&#x7684;&#x4F18;&#x70B9;&#x5728;&#x4E8E;&#x5BF9;&#x7EF4;&#x5EA6;&#x4E0D;&#x654F;&#x611F;&#x3002;</p>
-<h2 id="rapid-random-exploration-tree">Rapid Random-Exploration Tree</h2>
-<p><a href="https://www.cnblogs.com/21207-iHome/p/7210543.html" target="_blank">RRT&#x8DEF;&#x5F84;&#x89C4;&#x5212;&#x7B97;&#x6CD5;</a>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x5DF2;&#x7ECF;&#x5BF9;RRT&#x6709;&#x4E86;&#x8F83;&#x597D;&#x7684;&#x4ECB;&#x7ECD;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4ECB;&#x7ECD;&#x5927;&#x90E8;&#x5206;&#x57FA;&#x4E8E;&#x6B64;&#x6587;&#x3002;&#x5982;&#x679C;&#x5BF9;&#x5B9E;&#x73B0;&#x7684;&#x7B97;&#x6CD5;&#x6709;&#x5174;&#x8DA3;&#xFF0C;&#x535A;&#x6587;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;Matlab&#x4EE3;&#x7801;&#xFF0C;&#x5728;<a href="https://github.com/AtsushiSakai/PythonRobotics/tree/master/PathPlanning" target="_blank">GitHub</a>&#x4E0A;&#x6709;&#x5F88;&#x591A;Python&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x5982;&#x679C;&#x6587;&#x4E2D;&#x7684;&#x63CF;&#x8FF0;&#x8FC7;&#x4E8E;&#x62BD;&#x8C61;&#xFF0C;&#x9700;&#x8981;&#x56FE;&#x50CF;&#x7684;&#x8F85;&#x52A9;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E2A;<a href="https://jingyan.baidu.com/article/574c521957eb406c8d9dc1bc.html" target="_blank">&#x7AE5;&#x8DA3;&#x7684;&#x7248;&#x672C;</a>&#x3002;</p>
-<h3 id="&#x7B97;&#x6CD5;">&#x7B97;&#x6CD5;</h3>
-<h3 id="&#x4E00;&#x4E9B;&#x6539;&#x8FDB;">&#x4E00;&#x4E9B;&#x6539;&#x8FDB;</h3>
-<h4 id="&#x76EE;&#x6807;&#x5F15;&#x5BFC;">&#x76EE;&#x6807;&#x5F15;&#x5BFC;</h4>
-<h4 id="&#x4E24;&#x68F5;&#x6811;">&#x4E24;&#x68F5;&#x6811;</h4>
+                                <h1 id="21-rrt">2.1 RRT</h1>
+<p>&#x201C;&#x53EA;&#x89C1;&#x6811;&#x6728;&#xFF0C;&#x4E0D;&#x89C1;&#x68EE;&#x6797;&#x201D;&#x5728;&#x4E00;&#x822C;&#x7684;&#x8BED;&#x5883;&#x662F;&#x8D2C;&#x4E49;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x7B97;&#x6CD5;&#x4E2D;&#x4E5F;&#x4E0D;&#x5C3D;&#x7136;&#x3002;&#x201C;&#x89C1;&#x68EE;&#x6797;&#x201D;&#x7684;&#x4EE3;&#x4EF7;&#x53EF;&#x80FD;&#x662F;&#x5F88;&#x9AD8;&#x7684;&#xFF0C;&#x800C;&#x4EC5;&#x4EC5;&#x5224;&#x65AD;&#x4E00;&#x6BB5;&#x7EBF;&#x6BB5;&#x4E0A;&#x662F;&#x5426;&#x6709;&#x6811;&#x6728;&#x5C06;&#x4F1A;&#x8F7B;&#x677E;&#x5F88;&#x591A;&#x3002;RRT&#x7684;&#x4E3B;&#x8981;&#x601D;&#x60F3;&#x5C31;&#x662F;&#x8DEF;&#x5F84;&#x6811;&#x5728;&#x7A7A;&#x95F4;&#x4E2D;&#x968F;&#x673A;&#x6269;&#x5C55;&#xFF0C;&#x4E0D;&#x65AD;&#x8BD5;&#x63A2;&#x6269;&#x5C55;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x6765;&#x6784;&#x5EFA;&#x4E00;&#x68F5;&#x6811;&#x3002;</p>
+<h2 id="rrt&#x7B97;&#x6CD5;">RRT&#x7B97;&#x6CD5;</h2>
+<p>[TODO&#xFF1A;&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x5F20;GIF]</p>
+<p>&#x73B0;&#x5B9E;&#x4E2D;&#x7684;&#x73AF;&#x5883;&#x57FA;&#x672C;&#x4E0A;&#x4F1A;&#x6BD4;&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6F14;&#x793A;&#x8981;&#x590D;&#x6742;&#x5F88;&#x591A;&#xFF0C;&#x5149;&#x662F;&#x8868;&#x793A;&#x8FD9;&#x4E9B;&#x969C;&#x788D;&#x7269;&#x5C31;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x6839;&#x636E;&#x969C;&#x788D;&#x7269;&#x4FE1;&#x606F;&#x6765;&#x5BFB;&#x627E;&#x8DEF;&#x5F84;&#x5C31;&#x66F4;&#x96BE;&#x4E86;&#x3002;RRT&#x7684;&#x610F;&#x56FE;&#x5C31;&#x662F;&#x629B;&#x5F00;&#x4E86;&#x89E3;&#x5168;&#x5C40;&#x7684;&#x590D;&#x6742;&#xFF0C;&#x53EA;&#x7528;&#x7B80;&#x5355;&#x7684;&#x70B9;&#x78B0;&#x649E;&#x68C0;&#x6D4B;&#x6765;&#x63A2;&#x7D22;&#x7A7A;&#x95F4;&#xFF0C;&#x5BFB;&#x627E;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x4F2A;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">RRT</span><span class="token punctuation">(</span>qinit<span class="token punctuation">,</span> K<span class="token punctuation">,</span> &#x394;q<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    T<span class="token punctuation">.</span>init<span class="token punctuation">(</span>qinit<span class="token punctuation">)</span>
+     <span class="token keyword">for</span> k <span class="token operator">=</span> <span class="token number">1</span> to K <span class="token punctuation">:</span> 
+        qrand <span class="token operator">=</span> RandomSample<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># &#x968F;&#x673A;&#x91C7;&#x6837;</span>
+        qnearest <span class="token operator">=</span> Nearest<span class="token punctuation">(</span>T<span class="token punctuation">,</span> qrand<span class="token punctuation">)</span> <span class="token comment"># &#x9009;&#x62E9;&#x6811;&#x4E0A;&#x79BB;&#x91C7;&#x6837;&#x70B9;&#x6700;&#x8FD1;&#x7684;&#x9876;&#x70B9;</span>
+        <span class="token keyword">if</span>  Distance<span class="token punctuation">(</span>qnearest<span class="token punctuation">,</span> qgoal<span class="token punctuation">)</span> <span class="token operator">&lt;</span> Threshold <span class="token punctuation">:</span> <span class="token comment"># &#x5230;&#x8FBE;&#x7EC8;&#x70B9;&#xFF1F;</span>
+            <span class="token keyword">return</span> true
+        qnew <span class="token operator">=</span> Extend<span class="token punctuation">(</span>qnearest<span class="token punctuation">,</span> qrand<span class="token punctuation">,</span> &#x394;q<span class="token punctuation">)</span>  <span class="token comment"># &#x4ECE;qnearest&#x5411;qrand&#x6269;&#x5C55;&#x4E00;&#x5B9A;&#x8DDD;&#x79BB;</span>
+        <span class="token keyword">if</span> qnew &#x2260; NULL <span class="token punctuation">:</span> 
+            T<span class="token punctuation">.</span>AddNode<span class="token punctuation">(</span>qnew<span class="token punctuation">)</span> <span class="token comment"># &#x6210;&#x529F;&#x6DFB;&#x52A0;&#x6269;&#x5C55;&#x70B9;</span>
+    <span class="token keyword">return</span> false
+</code></pre>
+<p>RRT&#x901A;&#x8FC7;&#x968F;&#x673A;&#x7684;Sample()&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x70B9;qrand&#xFF0C;&#x627E;&#x4E00;&#x4E2A;&#x6811;&#x4E0A;&#x79BB;qrand&#x6700;&#x8FD1;&#x7684;&#x70B9;qnear&#xFF0C;&#x4ECE;qnear&#x51FA;&#x53D1;&#x5411;qrand&#x79FB;&#x52A8;&#x394;q&#x5F97;&#x5230;qnew&#xFF0C;&#x82E5;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x78B0;&#x649E;&#xFF08;&#x6709;&#x6548;&#x70B9;&#xFF09;&#x5219;&#x5411;&#x6811;&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x70B9;&#x3002;&#x76F4;&#x5230;&#x627E;&#x5230;&#x70B9;&#x4E0E;&#x76EE;&#x6807;&#x8DDD;&#x79BB;&#x8DB3;&#x591F;&#x8FD1;&#xFF0C;&#x5373;&#x83B7;&#x5F97;&#x4E86;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x4F60;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x627E;&#x4E00;&#x4E2A;&#x6700;&#x8FD1;&#x7684;&#x70B9;&#x8FDB;&#x884C;&#x6269;&#x5F20;&#xFF1F;&#x800C;&#x4E0D;&#x662F;&#x968F;&#x673A;&#x7684;&#x4E00;&#x4E2A;&#x70B9;&#x5462;&#xFF1F; &#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x968F;&#x673A;&#x70B9;&#xFF0C;&#x968F;&#x673A;&#x65B9;&#x5411;&#x6269;&#x5C55;&#xFF0C;&#x8FD9;&#x68F5;&#x6811;&#x7684;&#x6269;&#x5C55;&#x901F;&#x5EA6;&#x5341;&#x5206;&#x6709;&#x9650;&#xFF0C;&#x4E0B;&#x56FE;&#x5C31;&#x662F;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x5728;&#x76F8;&#x540C;&#x7684;&#x6B65;&#x9AA4;&#x6570;&#x540E;&#x751F;&#x6210;&#x7684;&#x6811;&#x7684;&#x5BF9;&#x6BD4;&#x3002;</p>
+<p><img src="C:\Users\Robot.Li\AppData\Roaming\Typora\typora-user-images\1565834745959.png" alt="1565834745959"></p>
+<h2 id="rrt&#x7684;&#x6539;&#x8FDB;&#x4E0E;&#x601D;&#x8003;">RRT&#x7684;&#x6539;&#x8FDB;&#x4E0E;&#x601D;&#x8003;</h2>
+<h3 id="&#x52A0;&#x901F;&#xFF01;">&#x52A0;&#x901F;&#xFF01;</h3>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x89C4;&#x5212;&#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x8981;&#x6C42;&#x4E0D;&#x9AD8;&#xFF0C;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x7528;&#x89E3;&#x6790;&#x7684;&#x65B9;&#x6CD5;&#x7EC6;&#x7EC6;&#x5730;&#x627E;&#x3002;&#x9009;&#x62E9;RRT&#xFF0C;&#x53EA;&#x662F;&#x5728;&#x6982;&#x7387;&#x4E0A;&#x5B8C;&#x5907;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8BA1;&#x7B97;&#x89C4;&#x5212;&#xFF0C;&#x663E;&#x7136;&#x662F;&#x56E0;&#x4E3A;&#x4EFB;&#x52A1;&#x9700;&#x8981;&#x8F83;&#x5FEB;&#x5730;&#x89E3;&#x51B3;&#x3002;&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x8BA9;RRT&#x66F4;&#x5FEB;&#x5462;&#xFF1F;</p>
+<h4 id="&#x91C7;&#x6837;&#x504F;&#x7F6E;">&#x91C7;&#x6837;&#x504F;&#x7F6E;</h4>
+<p>&#x4E3A;&#x4E86;&#x52A0;&#x5FEB;&#x968F;&#x673A;&#x6811;&#x5230;&#x8FBE;&#x76EE;&#x6807;&#x70B9;&#x7684;&#x901F;&#x5EA6;&#xFF0C;&#x7B80;&#x5355;&#x7684;&#x6539;&#x8FDB;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x8BA9;&#x6811;&#x671D;&#x7740;&#x76EE;&#x6807;&#x751F;&#x957F;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x5728;&#x968F;&#x673A;&#x6811;&#x6BCF;&#x6B21;&#x7684;&#x751F;&#x957F;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x968F;&#x673A;&#x6982;&#x7387;&#x6765;&#x51B3;&#x5B9A;qrand&#x662F;&#x76EE;&#x6807;&#x70B9;&#x8FD8;&#x662F;&#x968F;&#x673A;&#x70B9;&#x3002;&#x5728;Sample&#x51FD;&#x6570;&#x4E2D;&#x8BBE;&#x5B9A;&#x53C2;&#x6570;Prob&#xFF0C;&#x6BCF;&#x6B21;&#x5F97;&#x5230;&#x4E00;&#x4E2A;0&#x5230;1.0&#x7684;&#x968F;&#x673A;&#x503C;p&#xFF0C;&#x5F53;0&lt;p&lt;Prob&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x968F;&#x673A;&#x6811;&#x671D;&#x76EE;&#x6807;&#x70B9;&#x751F;&#x957F;&#x884C;&#xFF1B;&#x5F53;Prob&lt;p&lt;1.0&#x65F6;&#xFF0C;&#x968F;&#x673A;&#x6811;&#x671D;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x65B9;&#x5411;&#x751F;&#x957F;&#x3002;</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">Sample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> 
+     p <span class="token operator">=</span> Random<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span>
+     <span class="token keyword">if</span> <span class="token number">0</span> <span class="token operator">&lt;</span> p <span class="token operator">&lt;</span> Prob <span class="token punctuation">:</span>
+         <span class="token keyword">return</span> qgoal
+     <span class="token keyword">elif</span> Prob <span class="token operator">&lt;</span> p <span class="token operator">&lt;</span> <span class="token number">1.0</span> <span class="token punctuation">:</span>
+         <span class="token keyword">return</span> RandomNode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="&#x53CC;&#x5411;&#x641C;&#x7D22;">&#x53CC;&#x5411;&#x641C;&#x7D22;</h4>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E24;&#x68F5;&#x6811;&#x6765;&#x52A0;&#x901F;&#x3002;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x5185;&#x5BB9;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x6574;&#x7406;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5C0F;&#x8282;<a href="chap%202/RRTConnect.md">RRTConnect</a>&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x6709;&#x6548;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x80FD;&#x591F;&#x4F7F;&#x6C42;&#x89E3;&#x52A0;&#x901F;&#x5341;&#x5206;&#x663E;&#x8457;&#x3002;</p>
+<h4 id="&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x6570;&#x636E;&#x7ED3;&#x6784;</h4>
+<p>RRT&#x7B97;&#x6CD5;&#x9700;&#x8981;&#x5BFB;&#x627E;&#x6700;&#x8FD1;&#x7684;&#x6811;&#x4E0A;&#x9876;&#x70B9;&#xFF0C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;<code>k-d Tree</code>&#x7ED3;&#x6784;&#x6765;&#x5B58;&#x50A8;&#x9876;&#x70B9;&#xFF0C;&#x63D0;&#x9AD8;&#x641C;&#x7D22;&#x6548;&#x7387;&#x3002;</p>
+<h2 id="rrt&#x7684;&#x7F3A;&#x70B9;">RRT&#x7684;&#x7F3A;&#x70B9;</h2>
+<p>RRT&#x7B97;&#x6CD5;&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x7F3A;&#x70B9;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x7EAF;&#x7CB9;&#x7684;&#x968F;&#x673A;&#x641C;&#x7D22;&#x7B97;&#x6CD5;&#x5BF9;&#x73AF;&#x5883;&#x7C7B;&#x578B;&#x4E0D;&#x654F;&#x611F;&#x3002;&#x5F53;C-&#x7A7A;&#x95F4;&#x4E2D;&#x5305;&#x542B;&#x5927;&#x91CF;&#x969C;&#x788D;&#x7269;&#x6216;&#x72ED;&#x7A84;&#x901A;&#x9053;&#x7EA6;&#x675F;&#x65F6;&#xFF0C;&#x7B97;&#x6CD5;&#x7684;&#x6536;&#x655B;&#x901F;&#x5EA6;&#x6162;&#xFF0C;&#x6548;&#x7387;&#x4F1A;&#x5927;&#x5E45;&#x4E0B;&#x964D;&#x3002;&#x56E0;&#x4E3A;&#x72ED;&#x7A84;&#x901A;&#x9053;&#x9762;&#x79EF;&#x5C0F;&#xFF0C;&#x88AB;&#x78B0;&#x5230;&#x7684;&#x6982;&#x7387;&#x4F4E;&#x3002;</p>
 <h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
 <p>[1] Steven M. LaValle, PLANNING ALGORITHMS</p>
 <p>[2] Steven M. LaValle, Rapidly-Exploring Random Trees: A New Tool for Path Planning </p>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-08-15 17:44:31
+2019-08-22 16:06:40
 </span></footer>
                                 
                                 </section>
@@ -406,12 +468,12 @@
 
             
                 
-                <a href="../chap 1/C-Space.html" class="navigation navigation-prev " aria-label="Previous page: 1.3 C-Space">
+                <a href="chap2.html" class="navigation navigation-prev " aria-label="Previous page: 2 RRT">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../chap 3/Optimal RRTs.html" class="navigation navigation-next " aria-label="Next page: 3 渐进最优的RRT们">
+                <a href="RRTConnect.html" class="navigation navigation-next " aria-label="Next page: 2.2 RRTConnect">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -422,7 +484,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2 RRT","level":"1.3","depth":1,"next":{"title":"3 渐进最优的RRT们","level":"1.4","depth":1,"path":"chap 3/Optimal RRTs.md","ref":"chap 3/Optimal RRTs.md","articles":[{"title":"3.1 RRT*","level":"1.4.1","depth":2,"path":"chap 3/RRTstar.md","ref":"chap 3/RRTstar.md","articles":[]},{"title":"3.2 Heuristic","level":"1.4.2","depth":2,"path":"chap 3/Heuristic.md","ref":"chap 3/Heuristic.md","articles":[{"title":"3.2.1 Informed RRT*","level":"1.4.2.1","depth":3,"path":"chap 3/InformedRRTstar.md","ref":"chap 3/InformedRRTstar.md","articles":[]}]},{"title":"3.3 FMT与BIT*","level":"1.4.3","depth":2,"path":"chap 3/FMT and BIT.md","ref":"chap 3/FMT and BIT.md","articles":[{"title":"3.3.1 FMT","level":"1.4.3.1","depth":3,"path":"chap 3/FMT.md","ref":"chap 3/FMT.md","articles":[]},{"title":"3.3.2 BIT*","level":"1.4.3.2","depth":3,"path":"chap 3/BatchInformedTreeStar.md","ref":"chap 3/BatchInformedTreeStar.md","articles":[]}]}]},"previous":{"title":"1.3 C-Space","level":"1.2.3","depth":2,"path":"chap 1/C-Space.md","ref":"chap 1/C-Space.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","prism","highlight","splitter","tbfed-pagefooter","fontsettings","simple-page-toc","links","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{},"disqus":{"useIdentifier":false,"shortName":"webpack-handbook"},"github":{"url":"https://github.com/webChatContact/baas-v2-help"},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"family":"serif","size":12,"theme":"white"},"highlight":{},"links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"demo","language":"zh-cn","gitbook":"*","description":"demo"},"file":{"path":"chap 2/RandomRapidExploreTree.md","mtime":"2019-08-15T09:44:31.153Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T03:50:15.568Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.1 RRT","level":"1.3.1","depth":2,"next":{"title":"2.2 RRTConnect","level":"1.3.2","depth":2,"path":"chap 2/RRTConnect.md","ref":"chap 2/RRTConnect.md","articles":[]},"previous":{"title":"2 RRT","level":"1.3","depth":1,"path":"chap 2/chap2.md","ref":"chap 2/chap2.md","articles":[{"title":"2.1 RRT","level":"1.3.1","depth":2,"path":"chap 2/RandomRapidExploreTree.md","ref":"chap 2/RandomRapidExploreTree.md","articles":[]},{"title":"2.2 RRTConnect","level":"1.3.2","depth":2,"path":"chap 2/RRTConnect.md","ref":"chap 2/RRTConnect.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["disqus","github","prism","highlight","splitter","tbfed-pagefooter","fontsettings","simple-page-toc","links","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{},"disqus":{"useIdentifier":false,"shortName":"webpack-handbook"},"github":{"url":"https://github.com/webChatContact/baas-v2-help"},"livereload":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"family":"serif","size":12,"theme":"white"},"highlight":{},"links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"demo","language":"zh-cn","gitbook":"*","description":"demo"},"file":{"path":"chap 2/RandomRapidExploreTree.md","mtime":"2019-08-22T08:06:40.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-22T08:48:11.752Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -453,6 +515,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-links/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

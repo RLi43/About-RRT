@@ -1,0 +1,547 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.2 RRTConnect · demo</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-links/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../chap 3/Optimal RRTs.html" />
+    
+    
+    <link rel="prev" href="RandomRapidExploreTree.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chap 1/BackgroundKnowledge.html">
+            
+                <a href="../chap 1/BackgroundKnowledge.html">
+            
+                    
+                    1 在此之前
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chap 1/defination.html">
+            
+                <a href="../chap 1/defination.html">
+            
+                    
+                    1.1 规划问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chap 1/discrete planning.html">
+            
+                <a href="../chap 1/discrete planning.html">
+            
+                    
+                    1.2 离散规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chap 1/C-Space.html">
+            
+                <a href="../chap 1/C-Space.html">
+            
+                    
+                    1.3 C-Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chap2.html">
+            
+                <a href="chap2.html">
+            
+                    
+                    2 RRT
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="RandomRapidExploreTree.html">
+            
+                <a href="RandomRapidExploreTree.html">
+            
+                    
+                    2.1 RRT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="RRTConnect.html">
+            
+                <a href="RRTConnect.html">
+            
+                    
+                    2.2 RRTConnect
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chap 3/Optimal RRTs.html">
+            
+                <a href="../chap 3/Optimal RRTs.html">
+            
+                    
+                    3 渐进最优的RRT们
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chap 3/RRTstar.html">
+            
+                <a href="../chap 3/RRTstar.html">
+            
+                    
+                    3.1 RRT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../chap 3/Heuristic.html">
+            
+                <a href="../chap 3/Heuristic.html">
+            
+                    
+                    3.2 Heuristic
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../chap 3/InformedRRTstar.html">
+            
+                <a href="../chap 3/InformedRRTstar.html">
+            
+                    
+                    3.2.1 Informed RRT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../chap 3/FMT and BIT.html">
+            
+                <a href="../chap 3/FMT and BIT.html">
+            
+                    
+                    3.3 FMT与BIT*
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../chap 3/FMT.html">
+            
+                <a href="../chap 3/FMT.html">
+            
+                    
+                    3.3.1 FMT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../chap 3/BatchInformedTreeStar.html">
+            
+                <a href="../chap 3/BatchInformedTreeStar.html">
+            
+                    
+                    3.3.2 BIT*
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chap 4/RRTs.html">
+            
+                <a href="../chap 4/RRTs.html">
+            
+                    
+                    4 各种RRT们/RRT的修饰手段
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.2 RRTConnect</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="rrtconnect">RRTConnect</h1>
+<p>&#x53CC;&#x5411;RRT&#x7B97;&#x6CD5;&#xFF0C;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;<code>BiRRT</code>&#x3002;</p>
+<p>&#x4F2A;&#x4EE3;&#x7801;</p>
+<pre class="language-"><code class="lang-python"><span class="token comment"># &#x5206;&#x522B;&#x4EE5;&#x8D77;&#x70B9;&#x548C;&#x7EC8;&#x70B9;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x68F5;&#x6811;</span>
+V_1 <span class="token operator">=</span> <span class="token punctuation">{</span>q_init<span class="token punctuation">}</span><span class="token punctuation">;</span> E_1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> G_1 <span class="token operator">=</span> <span class="token punctuation">(</span>V_1<span class="token punctuation">,</span>E_1<span class="token punctuation">)</span>
+V_2 <span class="token operator">=</span> <span class="token punctuation">{</span>q_goal<span class="token punctuation">}</span><span class="token punctuation">;</span> E_2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> G_2 <span class="token operator">=</span> <span class="token punctuation">(</span>V_2<span class="token punctuation">,</span>E_2<span class="token punctuation">)</span>
+<span class="token keyword">while</span> i <span class="token operator">&lt;</span> N do<span class="token punctuation">:</span>
+    <span class="token comment"># &#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x4E0E;RRT&#x76F8;&#x540C;</span>
+    i<span class="token operator">+</span><span class="token operator">+</span>
+    q_rand <span class="token operator">=</span> Sample<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    q_nearest <span class="token operator">=</span> Nearest<span class="token punctuation">(</span>G_1<span class="token punctuation">,</span> q_rand<span class="token punctuation">)</span>
+    q_new <span class="token operator">=</span> ExpandVertex<span class="token punctuation">(</span>q_nearest<span class="token punctuation">,</span> q_rand<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> ObstacleFree<span class="token punctuation">(</span>q_nearest<span class="token punctuation">,</span> q_new<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        V_1<span class="token punctuation">.</span>add<span class="token punctuation">(</span>q_new<span class="token punctuation">)</span>
+        E_1<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token punctuation">(</span>q_nearest<span class="token punctuation">,</span>q_new<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment"># &#x7B2C;&#x4E8C;&#x68F5;&#x6811;&#x5411;&#x7740;&#x65B0;&#x751F;&#x6210;&#x7684;&#x70B9;&#x751F;&#x957F;</span>
+        q_nearest2 <span class="token operator">=</span> Nearest<span class="token punctuation">(</span>G_2<span class="token punctuation">,</span> q_new<span class="token punctuation">)</span>
+        q_new2 <span class="token operator">=</span> ExpandVertex<span class="token punctuation">(</span>q_nearest<span class="token punctuation">,</span> q_new<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> ObstacleFree<span class="token punctuation">(</span>q_nearest2<span class="token punctuation">,</span> q_new2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            V_1<span class="token punctuation">.</span>add<span class="token punctuation">(</span>q_new2<span class="token punctuation">)</span>
+            E_1<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token punctuation">(</span>q_nearest2<span class="token punctuation">,</span>q_new2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token comment"># &#x5C1D;&#x8BD5;&#x8FDE;&#x63A5;&#x4E24;&#x68F5;&#x6811;</span>
+            do<span class="token punctuation">:</span>
+                q_new3 <span class="token operator">=</span> ExpandVertex<span class="token punctuation">(</span>q_new2<span class="token punctuation">,</span>q_new<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> ObstacleFree<span class="token punctuation">(</span>q_new2<span class="token punctuation">,</span> q_new3<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    V_1<span class="token punctuation">.</span>add<span class="token punctuation">(</span>q_new3<span class="token punctuation">)</span>
+                    E_1<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token punctuation">(</span>q_new2<span class="token punctuation">,</span>q_new3<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    q_new2 <span class="token operator">=</span> q_new3
+                <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">break</span>
+            <span class="token keyword">while</span> <span class="token keyword">not</span> q_new2 <span class="token operator">==</span> q_new
+        <span class="token comment"># &#x4E24;&#x68F5;&#x6811;&#x76F8;&#x9047; -&gt; &#x6210;&#x529F;</span>
+        <span class="token keyword">if</span> q_new2 <span class="token operator">==</span> q_new<span class="token punctuation">:</span> <span class="token keyword">return</span> SUCCESS
+    <span class="token comment"># &#x4EA4;&#x6362;&#x6811;&#x4EE5;&#x5747;&#x8861;&#x4E24;&#x68F5;&#x6811;&#x7684;&#x89C4;&#x6A21;</span>
+    <span class="token keyword">if</span> <span class="token operator">|</span>V_2<span class="token operator">|</span> <span class="token operator">&lt;</span> <span class="token operator">|</span>V_1<span class="token operator">|</span><span class="token punctuation">:</span>
+        Swap<span class="token punctuation">(</span>G_1<span class="token punctuation">,</span> G_2<span class="token punctuation">)</span>
+</code></pre>
+<p>RRTConnect&#x589E;&#x52A0;&#x4E86;&#x4ECE;&#x76EE;&#x6807;&#x70B9;&#x5F00;&#x59CB;&#x7684;&#x6811;&#x3002;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x6269;&#x5C55;&#x4E0E;&#x666E;&#x901A;RRT&#x76F8;&#x540C;&#xFF0C;&#x8FDB;&#x884C;&#x968F;&#x673A;&#x6269;&#x5C55;&#xFF1B;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x7B2C;&#x4E8C;&#x68F5;&#x6811;&#x4EE5;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x65B0;&#x6269;&#x5C55;qnew&#x4E3A;&#x76EE;&#x6807;&#x8FDB;&#x884C;&#x6269;&#x5C55;&#xFF0C;&#x5E76;&#x4E0D;&#x65AD;&#x5411;qnew&#x6269;&#x5C55;&#x76F4;&#x5230;&#x5230;&#x9047;&#x5230;&#x969C;&#x788D;&#x7269;&#x3002;&#x5FAA;&#x73AF;&#x6B64;&#x8FC7;&#x7A0B;&#xFF0C;&#x76F4;&#x5230;&#x4E24;&#x68F5;&#x6811;&#x76F8;&#x9047;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x4FDD;&#x6301;&#x5E73;&#x8861;&#xFF0C;&#x8BA9;&#x89C4;&#x6A21;&#x5C0F;&#x7684;&#x6811;&#x8FDB;&#x884C;&#x968F;&#x673A;&#x6269;&#x5C55;&#x3002;&#x8FD9;&#x91CC;&#x89C4;&#x6A21;&#x7684;&#x5B9A;&#x4E49;&#x53EF;&#x4EE5;&#x662F;&#x9876;&#x70B9;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E24;&#x68F5;&#x6811;&#x603B;&#x5171;&#x82B1;&#x8D39;&#x7684;&#x8DEF;&#x5F84;&#x957F;&#x5EA6;&#xFF0C;&#x6216;&#x662F;&#x5176;&#x4ED6;&#x7684;&#x5B9A;&#x4E49;&#x3002;</p>
+<p>[TODO&#xFF1A;&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x5F20;GIF]</p>
+<h2 id="&#x9AD8;&#x901F;">&#x9AD8;&#x901F;</h2>
+<p>&#x8FD9;&#x79CD;&#x53CC;&#x5411;&#x7684;RRT&#x6280;&#x672F;&#x5177;&#x6709;&#x826F;&#x597D;&#x7684;&#x641C;&#x7D22;&#x7279;&#x6027;&#xFF0C;&#x6BD4;&#x539F;&#x59CB;RRT&#x7B97;&#x6CD5;&#x7684;&#x641C;&#x7D22;&#x901F;&#x5EA6;&#x3001;&#x641C;&#x7D22;&#x6548;&#x7387;&#x6709;&#x4E86;&#x663E;&#x8457;&#x63D0;&#x9AD8;&#xFF0C;&#x88AB;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;RRTConnect&#x7B97;&#x6CD5;&#x8F83;&#x4E4B;&#x524D;&#x7684;&#x7B97;&#x6CD5;&#x5728;&#x6269;&#x5C55;&#x7684;&#x6B65;&#x957F;&#x4E0A;&#x66F4;&#x957F;&#xFF0C;&#x4F7F;&#x5F97;&#x6811;&#x7684;&#x751F;&#x957F;&#x66F4;&#x5FEB;&#xFF1B;&#x5176;&#x6B21;&#xFF0C;&#x4E24;&#x68F5;&#x6811;&#x4E0D;&#x65AD;&#x671D;&#x5411;&#x5BF9;&#x65B9;&#x4EA4;&#x66FF;&#x6269;&#x5C55;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x91C7;&#x7528;&#x968F;&#x673A;&#x6269;&#x5C55;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x7279;&#x522B;&#x5F53;&#x8D77;&#x59CB;&#x4F4D;&#x59FF;&#x548C;&#x76EE;&#x6807;&#x4F4D;&#x59FF;&#x5904;&#x4E8E;&#x7EA6;&#x675F;&#x533A;&#x57DF;&#x65F6;&#xFF0C;&#x4E24;&#x68F5;&#x6811;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x671D;&#x5411;&#x5BF9;&#x65B9;&#x5FEB;&#x901F;&#x6269;&#x5C55;&#x800C;&#x9003;&#x79BB;&#x5404;&#x81EA;&#x7684;&#x7EA6;&#x675F;&#x533A;&#x57DF;&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x5E26;&#x6709;&#x542F;&#x53D1;&#x6027;&#x7684;&#x6269;&#x5C55;&#x4F7F;&#x5F97;&#x6811;&#x7684;&#x6269;&#x5C55;&#x66F4;&#x52A0;&#x8D2A;&#x5A6A;&#x548C;&#x660E;&#x786E;&#xFF0C;&#x4F7F;&#x5F97;&#x53CC;&#x6811;RRT&#x7B97;&#x6CD5;&#x8F83;&#x4E4B;&#x5355;&#x6811;RRT&#x7B97;&#x6CD5;&#x66F4;&#x52A0;&#x6709;&#x6548;&#x3002; </p>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-08-22 16:28:42
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="RandomRapidExploreTree.html" class="navigation navigation-prev " aria-label="Previous page: 2.1 RRT">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../chap 3/Optimal RRTs.html" class="navigation navigation-next " aria-label="Next page: 3 渐进最优的RRT们">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.2 RRTConnect","level":"1.3.2","depth":2,"next":{"title":"3 渐进最优的RRT们","level":"1.4","depth":1,"path":"chap 3/Optimal RRTs.md","ref":"chap 3/Optimal RRTs.md","articles":[{"title":"3.1 RRT*","level":"1.4.1","depth":2,"path":"chap 3/RRTstar.md","ref":"chap 3/RRTstar.md","articles":[]},{"title":"3.2 Heuristic","level":"1.4.2","depth":2,"path":"chap 3/Heuristic.md","ref":"chap 3/Heuristic.md","articles":[{"title":"3.2.1 Informed RRT*","level":"1.4.2.1","depth":3,"path":"chap 3/InformedRRTstar.md","ref":"chap 3/InformedRRTstar.md","articles":[]}]},{"title":"3.3 FMT与BIT*","level":"1.4.3","depth":2,"path":"chap 3/FMT and BIT.md","ref":"chap 3/FMT and BIT.md","articles":[{"title":"3.3.1 FMT","level":"1.4.3.1","depth":3,"path":"chap 3/FMT.md","ref":"chap 3/FMT.md","articles":[]},{"title":"3.3.2 BIT*","level":"1.4.3.2","depth":3,"path":"chap 3/BatchInformedTreeStar.md","ref":"chap 3/BatchInformedTreeStar.md","articles":[]}]}]},"previous":{"title":"2.1 RRT","level":"1.3.1","depth":2,"path":"chap 2/RandomRapidExploreTree.md","ref":"chap 2/RandomRapidExploreTree.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","prism","highlight","splitter","tbfed-pagefooter","fontsettings","simple-page-toc","links","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{},"disqus":{"useIdentifier":false,"shortName":"webpack-handbook"},"github":{"url":"https://github.com/webChatContact/baas-v2-help"},"livereload":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"family":"serif","size":12,"theme":"white"},"highlight":{},"links":{"gitbook":false,"sharing":{"google":false,"facebook":false,"twitter":false,"all":false}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"demo","language":"zh-cn","gitbook":"*","description":"demo"},"file":{"path":"chap 2/RRTConnect.md","mtime":"2019-08-22T08:28:42.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-22T08:48:11.752Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-links/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
